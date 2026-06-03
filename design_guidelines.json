@@ -1,0 +1,158 @@
+{
+  "theme": {
+    "mode": "light",
+    "archetype": "6 (Vibrant Play)",
+    "description": "A gamified, Duolingo-inspired learning application with high-energy, colorful, and tactile UI elements."
+  },
+  "typography": {
+    "font_family": {
+      "heading": "'Nunito', 'Fredoka', 'Varela Round', sans-serif",
+      "body": "'Nunito', 'Varela Round', sans-serif"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-black tracking-tight",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-bold",
+      "h4": "text-lg font-bold uppercase tracking-wider text-muted-foreground",
+      "body": "text-base sm:text-lg font-medium leading-relaxed",
+      "label": "text-sm font-bold uppercase tracking-widest text-muted-foreground"
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#ffffff",
+      "secondary": "#f7f7f7",
+      "tertiary": "#e5e5e5"
+    },
+    "text": {
+      "primary": "#3c3c3c",
+      "secondary": "#777777",
+      "inverse": "#ffffff"
+    },
+    "brand": {
+      "math": {
+        "base": "#58cc02",
+        "shadow": "#46a302",
+        "light": "#ddf4c4"
+      },
+      "greek": {
+        "base": "#1cb0f6",
+        "shadow": "#1899d6",
+        "light": "#d7f0fa"
+      },
+      "astrophysics": {
+        "base": "#ce82ff",
+        "shadow": "#a568cc",
+        "light": "#f4e0ff"
+      },
+      "coding": {
+        "base": "#ff9600",
+        "shadow": "#cc7800",
+        "light": "#ffe5c2"
+      },
+      "mp_points": {
+        "base": "#ffc800",
+        "shadow": "#cc8100"
+      },
+      "streak": {
+        "base": "#ff4b4b",
+        "shadow": "#ea2b2b"
+      },
+      "danger": {
+        "base": "#ff4b4b",
+        "shadow": "#ea2b2b"
+      },
+      "neutral": {
+        "base": "#e5e5e5",
+        "shadow": "#cecece",
+        "text": "#afafaf"
+      }
+    }
+  },
+  "ui_components": {
+    "buttons": {
+      "style_instructions": "All primary interactive buttons MUST follow the 3D 'levitate and press' tactile behavior. Use custom CSS classes for these to ensure smooth transitions.",
+      "base_classes": "relative inline-flex items-center justify-center font-bold uppercase tracking-widest rounded-2xl transition-all duration-150 active:scale-95",
+      "css_rules": [
+        ".duo-btn { transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1); }",
+        ".duo-btn:hover { transform: translateY(-2px); }",
+        ".duo-btn:active { transform: translateY(4px); box-shadow: 0 0px 0 transparent !important; }",
+        ".duo-btn-primary { background-color: var(--color-math-base); color: white; box-shadow: 0 4px 0 var(--color-math-shadow); }",
+        ".duo-btn-primary:hover { box-shadow: 0 6px 0 var(--color-math-shadow); }",
+        ".duo-btn-secondary { background-color: transparent; border: 2px solid var(--color-neutral-base); color: var(--color-text-secondary); box-shadow: 0 4px 0 var(--color-neutral-base); }",
+        ".duo-btn-secondary:hover { box-shadow: 0 6px 0 var(--color-neutral-base); background-color: var(--color-background-secondary); }"
+      ]
+    },
+    "cards": {
+      "base": "bg-white border-2 border-[var(--color-neutral-base)] rounded-2xl p-6",
+      "interactive": "hover:bg-[var(--color-background-secondary)] cursor-pointer transition-colors active:bg-[var(--color-neutral-base)]"
+    },
+    "navigation": {
+      "sidebar_desktop": "fixed left-0 top-0 h-screen w-64 border-r-2 border-[var(--color-neutral-base)] bg-white p-4 flex flex-col gap-2",
+      "bottom_mobile": "fixed bottom-0 left-0 w-full border-t-2 border-[var(--color-neutral-base)] bg-white p-2 flex justify-around sm:hidden z-50",
+      "nav_item": "flex items-center gap-4 p-3 rounded-xl font-bold text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] transition-colors cursor-pointer",
+      "nav_item_active": "text-[var(--color-greek-base)] bg-[var(--color-greek-light)] border-2 border-[var(--color-greek-light)]"
+    },
+    "path_node": {
+      "container": "relative flex justify-center w-full py-6",
+      "button": "w-20 h-20 rounded-full flex items-center justify-center text-3xl text-white duo-btn z-10",
+      "locked": "bg-[var(--color-neutral-base)] text-[var(--color-neutral-text)] box-shadow-neutral",
+      "active": "animate-bounce hover:animate-none",
+      "connector_line": "absolute top-1/2 left-1/2 w-full h-4 bg-[var(--color-neutral-base)] -z-10 transform -translate-y-1/2"
+    }
+  },
+  "icons_and_assets": {
+    "libraries_required": ["lucide-react"],
+    "usage": "Use thick, bold, rounded icons to match the playful aesthetic. Set strokeWidth to 2.5 or 3 for lucide icons.",
+    "images": [
+      {
+        "category": "mascot",
+        "url": "https://images.unsplash.com/photo-1625609965739-2a557e527382",
+        "description": "Playful owl graffiti to use as a mascot substitute or background."
+      },
+      {
+        "category": "course_physics",
+        "url": "https://images.pexels.com/photos/31177054/pexels-photo-31177054.jpeg",
+        "description": "Abstract colorful pattern for Astrophysics or Coding hero background."
+      },
+      {
+        "category": "course_greek",
+        "url": "https://images.pexels.com/photos/5319704/pexels-photo-5319704.jpeg",
+        "description": "Greek ruins at sunset for Greek course header."
+      }
+    ]
+  },
+  "specific_requirements": {
+    "authentication": {
+      "special_credential": "Email: 'omerobdr@gmail.com', Password: '152181isA' -> Grant Premium (no ads) instantly.",
+      "general": "Mock auth flow with local storage or state to keep progress."
+    },
+    "currency_system": {
+      "name": "Math Points (MP)",
+      "icon": "Coin or Star icon (yellow/gold)",
+      "usage": "Earned by completing lessons, visible in top bar and leaderboard."
+    },
+    "premium_mode": {
+      "price": "$4.99/mo",
+      "features": ["No Ads", "Unlimited Hearts/Lives", "Streak Freeze"],
+      "ads_behavior": "If not premium, show a full-screen interstitial ad overlay (mocked, maybe 3-5 sec timer before skip) before starting a lesson."
+    },
+    "lesson_structure": {
+      "hierarchy": "Course -> Section (3-6) -> Unit (10-20) -> Lesson (6-12).",
+      "path_layout": "Use alternating margins or sine-wave style offsets (e.g., left, center, right, center, left) to create a winding path of lesson nodes."
+    },
+    "lesson_player": {
+      "behavior": "Displays a top progress bar. Shows a question. User selects an option (3D buttons). Bottom bar changes state to 'Check', then shows Green/Red feedback based on correctness.",
+      "animations": "Use confetti/celebration on lesson completion."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Inject the custom 3D button CSS rules into the global CSS or Tailwind config to ensure buttons have the 'levitate and press' feel.",
+    "Implement the 'omerobdr@gmail.com' and '152181isA' specific logic in the login/signup handler to trigger premium status.",
+    "Use a winding layout for the course map. You can map over an array of lessons and apply a calculated horizontal offset (e.g., Math.sin(index) * 50) or just a predefined sequence of flex justifications (start, center, end, center) to make it look like a path.",
+    "Ensure heavily gamified UI elements: prominent streak counter (fire icon), heart/lives counter, and MP (Math Points) balance in the top nav.",
+    "Mock the 'Ad' as a full-screen overlay component with a countdown timer that appears when a free user tries to start a lesson.",
+    "Use distinct brand colors for each course: Green (Math), Blue (Greek), Purple (Astrophysics), Orange (Coding)."
+  ]
+}
+
