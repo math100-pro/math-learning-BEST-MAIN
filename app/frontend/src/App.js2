@@ -1,0 +1,50 @@
+
+Action: file_editor create /app/frontend/src/App.js --file-text "import React from \"react\";
+import \"@/App.css\";
+import { BrowserRouter, Routes, Route, Navigate } from \"react-router-dom\";
+
+import { AuthProvider, useAuth } from \"./context/AuthContext\";
+import Landing from \"./pages/Landing\";
+import Auth from \"./pages/Auth\";
+import Learn from \"./pages/Learn\";
+import CourseDetail from \"./pages/CourseDetail\";
+import Lesson from \"./pages/Lesson\";
+import Leaderboard from \"./pages/Leaderboard\";
+import Profile from \"./pages/Profile\";
+import Premium from \"./pages/Premium\";
+import PaymentSuccess from \"./pages/PaymentSuccess\";
+
+function Private({ children }) {
+  const { user, loading } = useAuth();
+  if (loading) return <div style={{ padding: 24 }}>Loading…</div>;
+  if (!user) return <Navigate to=\"/login\" replace />;
+  return children;
+}
+
+function App() {
+  return (
+    <div className=\"App\">
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path=\"/\" element={<Landing />} />
+            <Route path=\"/login\" element={<Auth mode=\"login\" />} />
+            <Route path=\"/signup\" element={<Auth mode=\"signup\" />} />
+            <Route path=\"/learn\" element={<Private><Learn /></Private>} />
+            <Route path=\"/course/:courseId\" element={<Private><CourseDetail /></Private>} />
+            <Route path=\"/lesson/:lessonId\" element={<Private><Lesson /></Private>} />
+            <Route path=\"/leaderboard\" element={<Private><Leaderboard /></Private>} />
+            <Route path=\"/profile\" element={<Private><Profile /></Private>} />
+            <Route path=\"/premium\" element={<Private><Premium /></Private>} />
+            <Route path=\"/payment/success\" element={<Private><PaymentSuccess /></Private>} />
+            <Route path=\"*\" element={<Navigate to=\"/\" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </div>
+  );
+}
+
+export default App;
+"
+Observation: Overwrite successful: /app/frontend/src/App.js
